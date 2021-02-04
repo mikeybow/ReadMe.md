@@ -1,18 +1,14 @@
-var img;
+const panels = document.querySelectorAll(".panel");
 
-img = document.querySelector(".img1");
+panels.forEach(panel => {
+    panel.addEventListener("click", () =>{
+        removeActiveClass();
+        panel.classList.add("active");
+    })
+});
 
-img.addEventListener("click", enlargeImg);
-
-function enlargeImg() {
-    img.style.transform = "scale(1.5)";
-    img.style.transition = "transform 1.5s ease";
-    img.style.width = value ('400px');
-    img.style.height = value ('auto');
+function removeActiveClass() {
+    panels.forEach(panel =>{
+        panel.classList.remove("active");
+    });
 }
-
-function resetImg() {  
-    img.style.width = "40%"; 
-    img.style.height = "auto"; 
-    img.style.transition = "width 0.5s ease";;
-  } 
